@@ -1,11 +1,3 @@
-
-class Array {
-    constructor() {
-        this.length = 0;
-        this.ptr = memory.allocate(this.length);
-    }
-
-
 // The word's worst allocator
 var memory = new Float64Array(1024);
 var head = 0;
