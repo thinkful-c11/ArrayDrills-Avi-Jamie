@@ -6,23 +6,19 @@ class Array {
         this._capacity = 0;
         this.ptr = memory.allocate(this.length);
     }
-
     push(value) {
         if (this.length >= this._capacity) {
             this._resize((this.length + 1) * Array.SIZE_RATIO);
         }
-
         memory.set(this.ptr + this.length, value);
         this.length++;
     }
-    
-    //NAIVE WAY
-    //  push(value) {
-    //         this._resize(this.length + 1);
-    //         memory.set(this.ptr + this.length, value);
-    //         this.length++;
-    //     }
-
+    // NAIVE WAY
+    // push(value) {
+    //     this._resize(this.length + 1);
+    //     memory.set(this.ptr + this.length, value);
+    //     this.length++;
+    // }
     _resize(size) {
         const oldPtr = this.ptr;
         this.ptr = memory.allocate(size);
@@ -33,9 +29,8 @@ class Array {
         memory.free(oldPtr);
         this._capacity = size;
     }
-
-    //NAIVE WAY
-    //     _resize(size) {
+    // NAIVE WAY
+    // _resize(size) {
     //     const oldPtr = this.ptr;
     //     this.ptr = memory.allocate(size);
     //     if (this.ptr === null) {
@@ -44,15 +39,13 @@ class Array {
     //     memory.copy(this.ptr, oldPtr, this.length);
     //     memory.free(oldPtr);
     // }
-
     get(index) {
-    if (index < 0 || index >= this.length) {
-        throw new Error('Index error');
+        if (index < 0 || index >= this.length) {
+            throw new Error('Index error');
+        }
+        return memory.get(this.ptr + index);
     }
-    return memory.get(this.ptr + index);
-  }
-
-  pop() {
+    pop() {
         if (this.length == 0) {
             throw new Error('Index error');
         }
@@ -60,30 +53,23 @@ class Array {
         this.length--;
         return value;
     }
-
-      insert(index, value) {
+    insert(index, value) {
         if (index < 0 || index >= this.length) {
             throw new Error('Index error');
         }
-
         if (this.length >= this._capacity) {
             this._resize((this.length + 1) * Array.SIZE_RATIO);
         }
-
         memory.copy(this.ptr + index + 1, this.ptr + index, this.length - index);
         memory.set(this.ptr + index, value);
         this.length++;
     }
-    
-       remove(index) {
+    remove(index) {
         if (index < 0 || index >= this.length) {
             throw new Error('Index error');
         }
         memory.copy(this.ptr + index, this.ptr + index + 1, this.length - index - 1);
         this.length--;
     }
-
-
 }
 Array.SIZE_RATIO = 3;
-
