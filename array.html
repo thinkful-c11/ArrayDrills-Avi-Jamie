@@ -174,8 +174,8 @@ const removeLessThanFive = (arr) => {
     return arr;
 }
 
-console.log(arr);
-console.log(removeLessThanFive(arr));
+// console.log(arr);
+// console.log(removeLessThanFive(arr));
 
 // 
 
@@ -189,25 +189,27 @@ const mergeTwoArrays=(arr1,arr2)=>{
     // console.log(arr2);//[3, 5, 11, 13, 17, 19, 2, 3, 5, 7, 11, 13, 17, 19, 23]
    
     let newArray = [];
+    let d1 = 0;
+    let d2 = 0;
 
-   for(let i = 0; i < arr1.length; i++) {
-        for(let j = 0; j < arr2.length; j++) {
-            if(arr1[i] < arr2[j]) {
-                newArray.push(arr1[i]);
-            } else {
-                newArray.push(arr2[j]);
-            }
-        }
+   while(arr1[d1] !== undefined || arr2[d2] !== undefined) {
+
+        if(arr1[d1] < arr2[d2] || arr1[d1] === arr2[d2]) {
+            newArray.push(arr1[d1])
+            d1++;
+        } else if (arr1[d1] > arr2[d2]) {
+            newArray.push(arr2[d2])
+            d2++
+        } else if (arr1[d1] === undefined) {
+            newArray.push(arr2[d2]);
+            d2++
+        } else if (arr2[d2] === undefined) {
+            newArray.push(arr1[d1])
+            d1++
+        } 
    }
 
    return newArray;
-
-    // let myArr = [...arr1, ...arr2];
-    // console.log(myArr);
-    // for(let i = 0; i < myArr.length; i++) {
-    //     myArr[i];
-    // }
-    // return myArr.sort((a, b) => a - b);
     
 }
 const array1=[2,3,5,7,11,13,17,19,23];
@@ -218,7 +220,22 @@ console.log(mergeTwoArrays(array1,array2));
 // Write an algorithm that deletes given characters from a string. For example, given a string of "Battle of the Vowels: Hawaii vs. Grozny" and characters to be removed are "aeiou", the algorithm should transform the original string to "Bttl f th Vwls: Hw vs. Grzny".
 // **** Very Important: **** Do not use Javascript's filter, split, or join methods.
 
+let startStr = "Battle of the Vowels: Hawaii vs. Grozny";
 
+const noVowels = (str) => {
+    let newStr = '';
+    console.log(str.charAt(1));
+
+    for(let i = 0; i < str.length; i++) {
+        if(str.charAt(i) !== 'a' || str.charAt(i) !== 'e' || str.charAt(i) !== 'i' || str.charAt(i) !== 'o' || str.charAt(i) !== 'u') {
+            newStr += str.charAt(i);
+        }
+    }
+
+    return newStr;
+}
+
+// console.log(noVowels(startStr));
 
 
 </script>
