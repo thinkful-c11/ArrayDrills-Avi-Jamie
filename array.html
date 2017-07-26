@@ -212,9 +212,9 @@ const mergeTwoArrays=(arr1,arr2)=>{
    return newArray;
     
 }
-const array1=[2,3,5,7,11,13,17,19,23];
-const array2=[3,5,11,13,17,19];
-console.log(mergeTwoArrays(array1,array2));
+// const array1=[2,3,5,7,11,13,17,19,23];
+// const array2=[3,5,11,13,17,19];
+// console.log(mergeTwoArrays(array1,array2));
 
 
 // Write an algorithm that deletes given characters from a string. For example, given a string of "Battle of the Vowels: Hawaii vs. Grozny" and characters to be removed are "aeiou", the algorithm should transform the original string to "Bttl f th Vwls: Hw vs. Grzny".
@@ -224,18 +224,18 @@ let startStr = "Battle of the Vowels: Hawaii vs. Grozny";
 
 const noVowels = (str) => {
     let newStr = '';
-    console.log(str.charAt(1));
 
     for(let i = 0; i < str.length; i++) {
-        if(str.charAt(i) !== 'a' || str.charAt(i) !== 'e' || str.charAt(i) !== 'i' || str.charAt(i) !== 'o' || str.charAt(i) !== 'u') {
-            newStr += str.charAt(i);
+        const c = str.charAt(i);
+        if(c !== 'a' && c !== 'e' && c !== 'i' && c !== 'o' && c !== 'u') {
+            newStr += c;
         }
     }
 
     return newStr;
 }
 
-// console.log(noVowels(startStr));
+console.log(noVowels(startStr));
 
 
 </script>
