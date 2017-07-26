@@ -180,10 +180,45 @@ console.log(removeLessThanFive(arr));
 // 
 
 const mergeTwoArrays=(arr1,arr2)=>{
-    return [...arr1,...arr2];
+    // let arrShort = arr1.length < arr2.length ? arr1 : arr2; 
+    
+    // for(let i = 0; i < arr1.length; i++) {
+    //     arr2.push(arr1[i]);
+    // }
+
+    // console.log(arr2);//[3, 5, 11, 13, 17, 19, 2, 3, 5, 7, 11, 13, 17, 19, 23]
+   
+    let newArray = [];
+
+   for(let i = 0; i < arr1.length; i++) {
+        for(let j = 0; j < arr2.length; j++) {
+            if(arr1[i] < arr2[j]) {
+                newArray.push(arr1[i]);
+            } else {
+                newArray.push(arr2[j]);
+            }
+        }
+   }
+
+   return newArray;
+
+    // let myArr = [...arr1, ...arr2];
+    // console.log(myArr);
+    // for(let i = 0; i < myArr.length; i++) {
+    //     myArr[i];
+    // }
+    // return myArr.sort((a, b) => a - b);
+    
 }
 const array1=[2,3,5,7,11,13,17,19,23];
 const array2=[3,5,11,13,17,19];
 console.log(mergeTwoArrays(array1,array2));
+
+
+// Write an algorithm that deletes given characters from a string. For example, given a string of "Battle of the Vowels: Hawaii vs. Grozny" and characters to be removed are "aeiou", the algorithm should transform the original string to "Bttl f th Vwls: Hw vs. Grzny".
+// **** Very Important: **** Do not use Javascript's filter, split, or join methods.
+
+
+
 
 </script>
