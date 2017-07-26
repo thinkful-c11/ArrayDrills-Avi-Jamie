@@ -130,9 +130,11 @@ Array.SIZE_RATIO = 3;
 // Imagine you have an array of numbers. Write an algorithm to remove all numbers less than five from the array. You shouldn't use the .filter method here; try to write the algorithm from scratch.
 let arr = new Array();
 
+//PUSH
+console.log("This is our first push");
 arr.push('rabbits');
 console.log(arr);
-
+console.log("10 more rabbits have been pushed!");
 arr.push('rabbits');
 arr.push('rabbits');
 arr.push('rabbits');
@@ -143,18 +145,22 @@ arr.push('rabbits');
 arr.push('rabbits');
 arr.push('rabbits');
 console.log(arr);
-
+//POP TEST
+console.log("Now lets pop one off the array!");
 arr.pop();
 console.log(arr);
-
+//INSERT TEST
+console.log("Try inserting cheesecake at 5");
 arr.insert(5, 'cheesecake');
 console.log(arr);
+console.log("Lets insert the number 5 at 2 also so we can get it later");
 arr.insert(2, 5);
-
+console.log(arr);
+//REMOVE TEST
+console.log("We've also removed from 7 a rabbit");
 arr.remove(7);
 console.log(arr);
-
+//GET TEST
+console.log("This is the number we're getting!");
 console.log(arr.get(2));
-
-
 </script>
